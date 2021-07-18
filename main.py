@@ -24,17 +24,12 @@ def main():
     def slots(update, context):
         response = getSlots(data["driver_path"], data["userId"], data["password"])
         context.bot.send_message(chat_id=update.effective_chat.id, text=f'Occupied slots: {response}')
-        
-    def caps(update, context):
-        text_caps = ' '.join(context.args).upper()
-        context.bot.send_message(chat_id=update.effective_chat.id, text=text_caps)
 
     def unknown(update, context):
         context.bot.send_message(chat_id=update.effective_chat.id, text="Sorry, that is not a valid command.")
 
     updater.dispatcher.add_handler(CommandHandler('start', start))
     updater.dispatcher.add_handler(CommandHandler('slots', slots))
-    updater.dispatcher.add_handler(CommandHandler('caps', caps))
     updater.dispatcher.add_handler(MessageHandler(Filters.command, unknown))
 
     updater.start_polling()
