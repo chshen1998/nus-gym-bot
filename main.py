@@ -1,5 +1,4 @@
-from telegram import Update
-from telegram.ext import Updater, CommandHandler, CallbackContext, MessageHandler, Filters
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import logging
 
 updater = Updater(token='1929838326:AAF4GHWsAQyl_U1GQDsiL6GGSDSGxNGJ2dw', use_context=True)
