@@ -22,8 +22,8 @@ def main():
         context.bot.send_message(chat_id=update.effective_chat.id, text=textmsg)
 
     def slots(update, context):
-        title = getSlots(data["driver_path"])
-        context.bot.send_message(chat_id=update.effective_chat.id, text=f'Available slots: {title}')
+        response = getSlots(data["driver_path"], data["userId"], data["password"])
+        context.bot.send_message(chat_id=update.effective_chat.id, text=f'Occupied slots: {response}')
         
     def caps(update, context):
         text_caps = ' '.join(context.args).upper()
