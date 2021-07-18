@@ -8,4 +8,4 @@ Feel free to use it for yourselves, after cloning you will need to add a data.js
 3. NUSNET ID
 4. NUS password
 
-![Screenshot](screenshot/screenshot.jpg) { width: 50px; }
+![Screenshot](screenshot/screenshot.jpg)
