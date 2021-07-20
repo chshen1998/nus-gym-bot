@@ -1,4 +1,4 @@
-from service import getSlots
+from service import Service
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import logging
 import json
@@ -12,6 +12,7 @@ def getData():
 def main():
     data = getData()
 
+    service = Service(data["driver_path"])
     updater = Updater(token=data['token'], use_context=True)
     dispatcher = updater.dispatcher
 
@@ -22,7 +23,7 @@ def main():
         context.bot.send_message(chat_id=update.effective_chat.id, text=textmsg)
 
     def slots(update, context):
-        response = getSlots(data["driver_path"], data["userId"], data["password"])
+        response = service.getSlots(data["userId"], data["password"])
         context.bot.send_message(chat_id=update.effective_chat.id, text=f'Occupied slots: {response}')
 
     def unknown(update, context):
